@@ -1,0 +1,23 @@
+:root {
+  --background: #fcf5ee;
+  --text: #000000;
+  --primary: #ee6983;
+  --secondary: #ffc4c4;
+  --border: #850e35;
+}
+
+.theme-darkPink {
+  --background: #3a0519;
+  --text: #ffffff;
+  --primary: #670d2f;
+  --secondary: #a53860;
+  --border: #ef88ad;
+}
+
+.theme-technical {
+  --background: #472183;
+  --text: #ffffff;
+  --primary: #4b56d2;
+  --secondary: #82c3ec;
+  --border: #f1f6f5;
+}
