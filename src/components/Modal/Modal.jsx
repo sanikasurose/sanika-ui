@@ -1,6 +1,29 @@
+import { useEffect } from "react";
 import "./Modal.css";
 
 const Modal = ({ isOpen, onClose, title, children }) => {
+  useEffect(() => {
+    const handleEsc = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleEsc);
+
+      // lock page scroll
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+
+      // restore scroll
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
