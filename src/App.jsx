@@ -1,14 +1,12 @@
 import React from "react";
-
-const setTheme = (theme) => {
-  document.documentElement.setAttribute("data-theme", theme);
-};
+import { useTheme } from "./components/ThemeContext/ThemeContext.jsx";
 
 const App = () => {
+  const { setTheme } = useTheme();
+
   return (
     <div style={{ padding: "20px" }}>
       <h1>Sanika-UI</h1>
-      <p>Component library in progress...</p>
 
       <button onClick={() => setTheme("")}>Classic Pink Mode</button>
       <button onClick={() => setTheme("darkPink")}>Dark Pink Mode</button>
