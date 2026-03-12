@@ -4,6 +4,7 @@ import Button from "./components/Button/Button.jsx";
 import Container from "./components/Container/Container.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Modal from "./components/Modal/Modal";
+import Tabs from "./components/Tabs/Tabs";
 
 const App = () => {
   const { setTheme } = useTheme();
@@ -55,6 +56,25 @@ const App = () => {
         <h2 style={{ marginTop: "40px" }}>Modal Component</h2>
 
         <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
+
+        <h2 style={{ marginTop: "40px" }}>Tabs Component</h2>
+
+        <Tabs
+          tabs={[
+            {
+              label: "Overview",
+              content: <p>This is the overview tab.</p>,
+            },
+            {
+              label: "Features",
+              content: <p>Reusable components, themes, and animations.</p>,
+            },
+            {
+              label: "Usage",
+              content: <p>Import the component and pass tab content.</p>,
+            },
+          ]}
+        />
       </Container>
 
       <Modal
