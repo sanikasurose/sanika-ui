@@ -6,7 +6,7 @@
   --color-border: #850e35;
 }
 
-.theme-darkPink {
+[data-theme="darkPink"] {
   --color-background: #3a0519;
   --color-text: #ffffff;
   --color-primary: #670d2f;
@@ -14,7 +14,7 @@
   --color-border: #ef88ad;
 }
 
-.theme-technical {
+[data-theme="devMode"] {
   --color-background: #472183;
   --color-text: #ffffff;
   --color-primary: #4b56d2;
