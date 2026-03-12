@@ -3,12 +3,29 @@ import { useTheme } from "./context/ThemeContext.jsx";
 import Button from "./components/Button/Button.jsx";
 import Container from "./components/Container/Container.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
-import Modal from "./components/Modal/Modal";
-import Tabs from "./components/Tabs/Tabs";
+import Modal from "./components/Modal/Modal.jsx";
+import Tabs from "./components/Tabs/Tabs.jsx";
+import Toast from "./components/Toast/Toast.jsx";
 
 const App = () => {
   const { setTheme } = useTheme();
+
   const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [closing, setClosing] = useState(false);
+
+  const showToast = (message, type) => {
+    if (toast) {
+      setClosing(true);
+
+      setTimeout(() => {
+        setToast({ message, type });
+        setClosing(false);
+      }, 300); // match CSS animation
+    } else {
+      setToast({ message, type });
+    }
+  };
 
   return (
     <>
@@ -75,6 +92,22 @@ const App = () => {
             },
           ]}
         />
+
+        <h2 style={{ marginTop: "40px" }}>Toast Component</h2>
+
+        <div style={{ display: "flex", gap: "10px" }}>
+          <Button onClick={() => showToast("Saved successfully!", "success")}>
+            Success Toast
+          </Button>
+
+          <Button onClick={() => showToast("Something went wrong", "error")}>
+            Error Toast
+          </Button>
+
+          <Button onClick={() => showToast("Here is some info", "info")}>
+            Info Toast
+          </Button>
+        </div>
       </Container>
 
       <Modal
@@ -86,6 +119,22 @@ const App = () => {
 
         <Button onClick={() => setModalOpen(false)}>Close</Button>
       </Modal>
+
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          closing={closing}
+          startClosing={() => {
+            setClosing(true);
+            setTimeout(() => {
+              setToast(null);
+              setClosing(false);
+            }, 300);
+          }}
+          onClose={() => setToast(null)}
+        />
+      )}
     </>
   );
 };
