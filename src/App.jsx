@@ -1,12 +1,13 @@
 import React from "react";
 import { useTheme } from "./components/ThemeContext/ThemeContext.jsx";
 import Button from "./components/Button/Button.jsx";
+import Container from "./components/Container/Container.jsx";
 
 const App = () => {
   const { setTheme } = useTheme();
 
   return (
-    <div style={{ padding: "20px" }}>
+    <Container>
       <h1>Sanika-UI</h1>
 
       <h2>Theme Switcher</h2>
@@ -36,7 +37,7 @@ const App = () => {
       <Button disabled>Disabled Button</Button>
 
 
-    </div>
+    </Container>
   );
 };
 
