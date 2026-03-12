@@ -9,15 +9,15 @@
 [data-theme="darkPink"] {
   --color-background: #3a0519;
   --color-text: #ffffff;
-  --color-primary: #670d2f;
-  --color-card: #a53860;
+  --color-primary: #a53860;
+  --color-card: #670d2f;
   --color-border: #ef88ad;
 }
 
 [data-theme="devMode"] {
-  --color-background: #472183;
+  --color-background: #03001c;
   --color-text: #ffffff;
-  --color-primary: #4b56d2;
-  --color-card: #82c3ec;
-  --color-border: #f1f6f5;
+  --color-primary: #b6eada;
+  --color-card: #5b8fb9;
+  --color-border: #301e67;
 }

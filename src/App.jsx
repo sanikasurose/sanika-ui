@@ -1,5 +1,6 @@
 import React from "react";
 import { useTheme } from "./components/ThemeContext/ThemeContext.jsx";
+import Button from "./components/Button/Button.jsx";
 
 const App = () => {
   const { setTheme } = useTheme();
@@ -8,9 +9,33 @@ const App = () => {
     <div style={{ padding: "20px" }}>
       <h1>Sanika-UI</h1>
 
-      <button onClick={() => setTheme("")}>Classic Pink Mode</button>
-      <button onClick={() => setTheme("darkPink")}>Dark Pink Mode</button>
-      <button onClick={() => setTheme("devMode")}>Dev Mode</button>
+      <h2>Theme Switcher</h2>
+      <div style={{ display: "flex", gap: "10px", marginBottom: "30px" }}>
+        <Button onClick={() => setTheme("")}>Classic Mode</Button>
+        <Button onClick={() => setTheme("darkPink")}>Dark Mode</Button>
+        <Button onClick={() => setTheme("devMode")}>Dev Mode</Button>
+      </div>
+
+      <h2>Button Component</h2>
+
+      <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+        <Button variant="primary">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="danger">Danger</Button>
+        <Button variant="outline">Outline</Button>
+      </div>
+
+      <h3 style={{ marginTop: "30px" }}>Sizes</h3>
+      <div style={{ display: "flex", gap: "16px" }}>
+        <Button size="small">Small</Button>
+        <Button size="medium">Medium</Button>
+        <Button size="large">Large</Button>
+      </div>
+
+      <h3 style={{ marginTop: "30px" }}>Disabled</h3>
+      <Button disabled>Disabled Button</Button>
+
+
     </div>
   );
 };
