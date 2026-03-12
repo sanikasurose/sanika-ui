@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "./context/ThemeContext.jsx";
 import Button from "./components/Button/Button.jsx";
 import Container from "./components/Container/Container.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
+import Modal from "./components/Modal/Modal";
 
 const App = () => {
   const { setTheme } = useTheme();
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <>
@@ -49,7 +51,21 @@ const App = () => {
 
         <h3 style={{ marginTop: "30px" }}>Disabled</h3>
         <Button disabled>Disabled Button</Button>
+
+        <h2 style={{ marginTop: "40px" }}>Modal Component</h2>
+
+        <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
       </Container>
+
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        title="Example Modal"
+      >
+        <p>This is a reusable modal component from Sanika-UI.</p>
+
+        <Button onClick={() => setModalOpen(false)}>Close</Button>
+      </Modal>
     </>
   );
 };
