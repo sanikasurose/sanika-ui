@@ -1,23 +1,77 @@
+/* ===============================
+   DEFAULT / CLASSIC THEME
+================================ */
+
 :root {
+  /* Core Colors */
   --color-background: #fcf5ee;
   --color-text: #000000;
   --color-primary: #ee6983;
   --color-card: #ffc4c4;
   --color-border: #850e35;
+
+  /* Surfaces */
+  --surface: #ffc4c4;
+  --surface-border: #850e35;
+
+  /* Card Effects */
+  --card-bg: #ffc4c4;
+  --card-border: #850e35;
+  --card-glow: rgba(238, 105, 131, 0.35);
+
+  /* Tags */
+  --tag-bg: #ffd6d6;
+  --tag-text: #850e35;
 }
 
+/* ===============================
+   DARK PINK THEME
+================================ */
+
 [data-theme="darkPink"] {
+  /* Core Colors */
   --color-background: #3a0519;
   --color-text: #ffffff;
   --color-primary: #a53860;
   --color-card: #670d2f;
   --color-border: #ef88ad;
+
+  /* Surfaces */
+  --surface: #670d2f;
+  --surface-border: #ef88ad;
+
+  /* Card Effects */
+  --card-bg: #670d2f;
+  --card-border: #ef88ad;
+  --card-glow: rgba(239, 136, 173, 0.45);
+
+  /* Tags */
+  --tag-bg: rgba(239, 136, 173, 0.2);
+  --tag-text: #ef88ad;
 }
 
+/* ===============================
+   DEV MODE THEME
+================================ */
+
 [data-theme="devMode"] {
+  /* Core Colors */
   --color-background: #03001c;
   --color-text: #ffffff;
   --color-primary: #b6eada;
   --color-card: #5b8fb9;
   --color-border: #301e67;
+
+  /* Surfaces */
+  --surface: #5b8fb9;
+  --surface-border: #301e67;
+
+  /* Card Effects */
+  --card-bg: #5b8fb9;
+  --card-border: #301e67;
+  --card-glow: rgba(182, 234, 218, 0.4);
+
+  /* Tags */
+  --tag-bg: rgba(182, 234, 218, 0.2);
+  --tag-text: #b6eada;
 }

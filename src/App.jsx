@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useTheme } from "./context/ThemeContext.jsx";
+
 import Button from "./components/Button/Button.jsx";
 import Container from "./components/Container/Container.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Modal from "./components/Modal/Modal.jsx";
 import Tabs from "./components/Tabs/Tabs.jsx";
 import Toast from "./components/Toast/Toast.jsx";
+import ProjectCard from "./components/ProjectCard/ProjectCard.jsx";
 
 const App = () => {
   const { setTheme } = useTheme();
@@ -21,7 +23,7 @@ const App = () => {
       setTimeout(() => {
         setToast({ message, type });
         setClosing(false);
-      }, 300); // match CSS animation
+      }, 300);
     } else {
       setToast({ message, type });
     }
@@ -44,12 +46,16 @@ const App = () => {
       <Container>
         <h1>Sanika-UI</h1>
 
+        {/* Theme Switcher */}
+
         <h2>Theme Switcher</h2>
         <div style={{ display: "flex", gap: "10px", marginBottom: "30px" }}>
           <Button onClick={() => setTheme("")}>Classic Mode</Button>
           <Button onClick={() => setTheme("darkPink")}>Dark Mode</Button>
           <Button onClick={() => setTheme("devMode")}>Dev Mode</Button>
         </div>
+
+        {/* Button Demo */}
 
         <h2>Button Component</h2>
 
@@ -61,6 +67,7 @@ const App = () => {
         </div>
 
         <h3 style={{ marginTop: "30px" }}>Sizes</h3>
+
         <div style={{ display: "flex", gap: "16px" }}>
           <Button size="small">Small</Button>
           <Button size="medium">Medium</Button>
@@ -68,11 +75,16 @@ const App = () => {
         </div>
 
         <h3 style={{ marginTop: "30px" }}>Disabled</h3>
+
         <Button disabled>Disabled Button</Button>
+
+        {/* Modal Demo */}
 
         <h2 style={{ marginTop: "40px" }}>Modal Component</h2>
 
         <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
+
+        {/* Tabs Demo */}
 
         <h2 style={{ marginTop: "40px" }}>Tabs Component</h2>
 
@@ -93,6 +105,8 @@ const App = () => {
           ]}
         />
 
+        {/* Toast Demo */}
+
         <h2 style={{ marginTop: "40px" }}>Toast Component</h2>
 
         <div style={{ display: "flex", gap: "10px" }}>
@@ -108,7 +122,54 @@ const App = () => {
             Info Toast
           </Button>
         </div>
+
+        {/* Project Card Demo */}
+
+        <h2 style={{ marginTop: "40px" }}>Project Cards</h2>
+
+        <div className="projects-grid">
+          <ProjectCard
+            title="SeamSecure"
+            image="/images/seamsecure.png"
+            tags={[
+              "Python",
+              "FastAPI",
+              "Uvicorn",
+              "Pydantic",
+              "Google Gemini",
+              "React",
+              "TypeScript",
+              "Tailwind CSS",
+              "Vite",
+            ]}
+            description="SeamSecure is a full-stack web application that analyzes email threads for potential security risks using rule-based heuristics and Google Gemini AI."
+            link="https://github.com"
+          />
+
+          <ProjectCard
+            title="Clairity"
+            image="/images/clairity.png"
+            tags={[
+              "Swift",
+              "Google Vision API",
+              "Google Gemini",
+              "Google Healthcare NLP",
+            ]}
+            description="CLAIRITY is a privacy-focused Swift iOS app that uses OCR and AI to transform complex medical documents into clear, structured next steps."
+            link="https://github.com"
+          />
+
+          <ProjectCard
+            title="ScholarScrape"
+            image="/images/scholarscrape.png"
+            tags={["Python", "BeautifulSoup", "Schema Design", "JSON Output"]}
+            description="ScholarScrape is a Python-based web scraper that crawls university faculty pages and converts academic data into structured research profiles."
+            link="https://github.com"
+          />
+        </div>
       </Container>
+
+      {/* Modal */}
 
       <Modal
         isOpen={modalOpen}
@@ -119,6 +180,8 @@ const App = () => {
 
         <Button onClick={() => setModalOpen(false)}>Close</Button>
       </Modal>
+
+      {/* Toast */}
 
       {toast && (
         <Toast
