@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "./context/ThemeContext.jsx";
 
 import Button from "./components/Button/Button.jsx";
@@ -10,7 +10,7 @@ import Toast from "./components/Toast/Toast.jsx";
 import ProjectCard from "./components/ProjectCard/ProjectCard.jsx";
 
 const App = () => {
-  const { setTheme } = useTheme();
+  const { setTheme, cycleTheme } = useTheme();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [toast, setToast] = useState(null);
@@ -28,6 +28,27 @@ const App = () => {
       setToast({ message, type });
     }
   };
+
+  // Keyboard shortcut for theme switching
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      const activeTag = document.activeElement.tagName;
+
+      // Prevent triggering when typing
+      if (activeTag === "INPUT" || activeTag === "TEXTAREA") return;
+
+      if (event.key.toLowerCase() === "t") {
+        cycleTheme();
+        showToast("Theme switched", "info");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [cycleTheme]);
 
   return (
     <>
@@ -49,11 +70,16 @@ const App = () => {
         {/* Theme Switcher */}
 
         <h2>Theme Switcher</h2>
-        <div style={{ display: "flex", gap: "10px", marginBottom: "30px" }}>
+
+        <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
           <Button onClick={() => setTheme("")}>Classic Mode</Button>
           <Button onClick={() => setTheme("darkPink")}>Dark Mode</Button>
           <Button onClick={() => setTheme("devMode")}>Dev Mode</Button>
         </div>
+
+        <p style={{ fontSize: "14px", opacity: 0.7 }}>
+          Press <strong>T</strong> to cycle themes
+        </p>
 
         {/* Button Demo */}
 
